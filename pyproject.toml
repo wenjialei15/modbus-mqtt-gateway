@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "modbus-mqtt-gateway"
+version = "0.1.0"
+description = "A software-only Modbus TCP to MQTT gateway and power-meter lab"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+license = "MIT"
+dependencies = ["pymodbus==3.11.4", "paho-mqtt==2.1.0"]
+
+[project.optional-dependencies]
+demo = ["amqtt==0.12.2"]
+
+[project.scripts]
+modbus-mqtt-gateway = "modbus_mqtt_gateway.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["modbus_mqtt_gateway*"]
+
+[tool.setuptools.package-data]
+modbus_mqtt_gateway = ["demo.toml"]

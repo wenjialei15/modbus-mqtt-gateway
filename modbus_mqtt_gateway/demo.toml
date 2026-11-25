@@ -1,0 +1,44 @@
+[modbus]
+host = "127.0.0.1"
+port = 15020
+device_id = 1
+timeout = 0.75
+poll_interval = 1.0
+name = "meter-01"
+
+[mqtt]
+host = "127.0.0.1"
+port = 18883
+topic_prefix = "lab/meter-01"
+
+[[registers]]
+name = "voltage"
+function = "input"
+address = 0
+type = "uint16"
+scale = 0.1
+unit = "V"
+
+[[registers]]
+name = "current"
+function = "input"
+address = 1
+type = "uint16"
+scale = 0.01
+unit = "A"
+
+[[registers]]
+name = "power"
+function = "input"
+address = 2
+type = "int16"
+scale = 1
+unit = "W"
+
+[[registers]]
+name = "energy"
+function = "input"
+address = 3
+type = "uint32"
+scale = 0.001
+unit = "kWh"
